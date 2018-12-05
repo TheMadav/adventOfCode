@@ -12,6 +12,7 @@ def findDuplicate frequencies
     #sleep(1)
 
     File.foreach("input.txt") { |x|
+
     if x[0]=="+"
       change = x[1..-1]
     else
@@ -32,7 +33,6 @@ def findDuplicate frequencies
 end
 
 while true
-
   puts "--- Run #{runs} - last value is #{frequencies.last} | Number of frequencies #{frequencies.count}"
   frequencies = findDuplicate frequencies
   runs = runs +1

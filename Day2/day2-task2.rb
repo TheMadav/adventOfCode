@@ -4,20 +4,32 @@ require 'levenshtein'
 codes = File.readlines("input.txt")
 
 while codes.length > 0
-  initialCode = codes.pop
+  initialCode = codes.pop.strip!
 
-  codes.each{|secondaryCode|
+  codes.map { |secondaryCode|
+
     distance = Levenshtein.distance initialCode, secondaryCode
-    if distance == 1
-      puts "Found it:"
+
+    next unless distance == 1
+
+    puts "Found it:\n (1) #{initialCode} \n (2) #{secondaryCode}"
+
+    i = 0
+
+    while i < (initialCode.size)
+
+      i +=1
+
+      next unless initialCode[i] != secondaryCode[i]
+
+      initialCode.slice!(i)
+      puts "----------------\nRESULT:"
       puts initialCode
-      puts secondaryCode
-      puts "----------------"
-      # Find wrong letter manually
       exit
     end
+
+    puts "mbruvapghxlzycbhmfqjonsie"
+
+
   }
-
 end
-
-exit
