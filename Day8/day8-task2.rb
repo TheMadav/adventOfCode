@@ -77,5 +77,5 @@ completeTree = licenseParser
 puts "================== Calculate Node Value ================== "
 sum = calculateNodeValue(completeTree,1)
 
-puts "================== RESULT ================== "
+puts "================== RESULT ================== "w
 puts sum
